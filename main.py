@@ -1,28 +1,13 @@
 import random
+import re
 
 
 class Ident:
-    ALPHABET = 'abcdefghijklmnopqrstuvwxyz0123456789'
+    ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyz'
 
     @staticmethod
     def id():
         return ''.join(random.choices(Ident.ALPHABET, k=8))
-
-    @staticmethod
-    def set(*args) -> any:
-        def core(*_args):
-            unique_characters = []
-            for character in _args:
-                if character not in unique_characters:
-                    unique_characters.append(character)
-            return unique_characters
-
-        if len(args) == 1:
-            return ''.join(core(*args[0]))
-        elif len(args) > 1:
-            return core(*args)
-        else:
-            return ''
 
     @classmethod
     def is_positive_number(cls, number: int) -> bool:
@@ -50,7 +35,12 @@ class Ident:
 
     @classmethod
     def normalize_alphabet(cls, alphabet: str) -> str:
-        return cls.set(alphabet) if cls.is_alphabet(alphabet) else cls.ALPHABET
+        def sort(sentence: list) -> list:
+            sentence.sort()
+            return sentence
+
+        return ''.join(sort([character for character in set(alphabet) if not re.search(r'\s', character)])) if \
+            cls.is_alphabet(alphabet) else cls.ALPHABET
 
     def __init__(self, *args, **kwargs) -> None:
         if args:

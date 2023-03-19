@@ -200,9 +200,9 @@ class TestIdentAlphabet:
         parámetro ``alphabet``.
         """
         alphabet_str_any = Ident(length=6, alphabet='thousand')
-        assert alphabet_str_any.alphabet == 'thousand'
+        assert alphabet_str_any.alphabet == 'adhnostu'
         alphabet_str_any.alphabet = 'this is an other string'
-        assert alphabet_str_any.alphabet == 'this anoerg'
+        assert alphabet_str_any.alphabet == 'aeghinorst'
 
 
 class TestIdentArgs:
@@ -255,4 +255,4 @@ class TestIdentKwargs:
         only_length_with_argument = Ident(length=None)
         assert only_length_with_argument.length == 8
         only_alphabet_with_argument = Ident(alphabet='Abecedario')
-        assert only_alphabet_with_argument.alphabet == 'Abecdario'
+        assert only_alphabet_with_argument.alphabet == 'Aabcdeior'
