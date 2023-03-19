@@ -5,6 +5,10 @@ class Ident:
     ALPHABET = 'abcdefghijklmnopqrstuvwxyz0123456789'
 
     @staticmethod
+    def id():
+        return ''.join(random.choices(Ident.ALPHABET, k=8))
+
+    @staticmethod
     def set(*args) -> any:
         def core(*_args):
             unique_characters = []
@@ -50,12 +54,8 @@ class Ident:
 
     def __init__(self, *args, **kwargs) -> None:
         if args:
-            if len(args) == 1:
-                self.__length = self.normalize_length(args[0])
-                self.__alphabet = self.ALPHABET
-            elif len(args) > 1:
-                self.__length = self.normalize_length(args[0])
-                self.__alphabet = self.normalize_alphabet(args[1])
+            self.__length = self.normalize_length(args[0]) if len(args) > 0 else 8
+            self.__alphabet = self.normalize_alphabet(args[1]) if len(args) > 1 else self.ALPHABET
         elif kwargs:
             self.__length = self.normalize_length(kwargs['length']) if 'length' in kwargs else 8
             self.__alphabet = self.normalize_alphabet(kwargs['alphabet']) if 'alphabet' in kwargs else self.ALPHABET
