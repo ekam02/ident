@@ -1,6 +1,6 @@
 import re
 
-from main import Ident
+from src.ident import Ident
 
 """
 La clase ``Ident()`` debe permitir crear instancias de objetos sin recibir argumentos de entrada. Por defecto,
