@@ -1,9 +1,10 @@
+import string
 import random
 import re
 
 
 class Ident:
-    ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyz'
+    ALPHABET = string.digits + string.ascii_lowercase
 
     @staticmethod
     def id():
