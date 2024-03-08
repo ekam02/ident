@@ -73,6 +73,9 @@ class Ident:
     def identifier(self, amount: int = 1) -> list:
         amount = amount if self.is_positive_number(amount) else 1
         return [''.join(random.choices(self.__alphabet, k=self.__length)) for _ in range(amount)]
+    
+    def __repr__(self) -> str:
+        return f"Ident(length={self.__length}, alphabet='{self.__alphabet}')"
 
     def __str__(self) -> str:
         return f"Ident(length={self.__length}, alphabet='{self.__alphabet}')"
