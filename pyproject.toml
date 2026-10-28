@@ -14,6 +14,9 @@ authors = [
 ]
 dependencies = []
 
+[project.scripts]
+ident = "ident.main:main"
+
 [project.optional-dependencies]
 dev = [
     "pytest",
