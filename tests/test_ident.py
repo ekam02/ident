@@ -1,6 +1,6 @@
 import re
 
-from src.ident import Ident
+from ident import Ident
 
 """
 La clase ``Ident()`` debe permitir crear instancias de objetos sin recibir argumentos de entrada. Por defecto,
@@ -10,7 +10,7 @@ caracteres (``alphabet``).
 
 
 class TestIdent:
-    def test_without_argument(self):
+    def test_without_argument(self) -> None:
         """
         **SUMMARY**: Probar el comportamiento al crear una instancia sin argumentos.
         **EXPECTED RESULT**: El programa permite crear la instancia sin argumentos de entrada.
@@ -23,7 +23,7 @@ class TestIdent:
         assert without_arguments.length == 8
         assert without_arguments.alphabet == Ident.ALPHABET
 
-    def test_method_id(self):
+    def test_method_id(self) -> None:
         """
         **SUMMARY**: Probar el comportamiento del método ``Ident.id()``.
         **EXPECTED RESULT**: El programa regresa una secuencia de caracteres de longitud ``8`` y abecedario
@@ -34,7 +34,7 @@ class TestIdent:
         """
         assert re.search('[0-9a-z]', Ident.id())
 
-    def test_with_argument(self):
+    def test_with_argument(self) -> None:
         """
         **SUMMARY**: Probar el comportamiento al crear una instancia sin argumentos.
         **EXPECTED RESULT**: El programa permite crear la instancia sin argumentos de entrada.
@@ -233,7 +233,7 @@ class TestIdentArgs:
 
 
 class TestIdentKwargs:
-    def test_length_with_none_argument(self):
+    def test_length_with_none_argument(self) -> None:
         """
         **SUMMARY**: Probar el comportamiento al pasar el valor None al parámetro ``length``.
         **EXPECTED RESULT**: El atributo ``length`` guardará el valor por defecto ``8``.
@@ -244,7 +244,7 @@ class TestIdentKwargs:
         a = Ident(length=None)
         assert a.length == 8
 
-    def test_instance_with_one_argument(self):
+    def test_instance_with_one_argument(self) -> None:
         """
         **SUMMARY**: Probar instancia con un unico argumento de entrada.
         **EXPECTED RESULT**: El tamaño debería quedar con el valor por defecto.
