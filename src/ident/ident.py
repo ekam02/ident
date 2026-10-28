@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import random
 import re
+import secrets
 import string
 from typing import Union, cast
 
@@ -14,7 +14,7 @@ class Ident:
     @staticmethod
     def id() -> str:
         """Entrega un Ident alfanumérico de 8 caracteres de longitud"""
-        return "".join(random.choices(Ident.ALPHABET, k=8))
+        return "".join(secrets.choice(Ident.ALPHABET) for _ in range(8))
 
     @classmethod
     def is_positive_number(cls, number: object) -> bool:
@@ -102,7 +102,7 @@ class Ident:
         """Entrega un listado de secuencias representativas a Ident"""
         resolved_amount = cast(int, amount) if self.is_positive_number(amount) else 1
         return [
-            "".join(random.choices(self.__alphabet, k=self.__length))
+            "".join(secrets.choice(self.__alphabet) for _ in range(self.__length))
             for _ in range(resolved_amount)
         ]
 
